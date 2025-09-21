@@ -2,6 +2,7 @@ using NUnit.Framework.Internal.Filters;
 using System.Collections;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
@@ -16,7 +17,6 @@ public class Hero : MonoBehaviour
     //private чтобы не каждый метод имел к нему доступ, без public меньше и легче связывать
     private Rigidbody2D _rb;
     private KnockBack _knockBack;
-
     [SerializeField] private float speed = 5f; //директива позволяет появится настройке в unity , но не меняется при вводе в unity
     [SerializeField] private int maxHealth = 10;
     [SerializeField] private float damageRecoveryTime = 0.5f;
@@ -120,12 +120,11 @@ public class Hero : MonoBehaviour
     }
     public void TakeDamage(Transform damageTransform, int damage)
     {
-        if (_canTakeDamage && _isAlive )
+        if (_canTakeDamage && _isAlive)
         {
             _canTakeDamage = false;
-            _currentHealt = Mathf.Max(0, _currentHealt -= damage);
+            _currentHealt = Mathf.Max(0, _currentHealt - damage);
             _knockBack.GetKnockedBack(damageTransform);
-
             OnFlashBlink?.Invoke(this, EventArgs.Empty);
 
             StartCoroutine(DamageRecoveryRoutine());
@@ -159,7 +158,9 @@ public class Hero : MonoBehaviour
         _canTakeDamage = true;
     }
 
-  
+    public int GetCurrentHealth() => _currentHealt;
+    public int GetMaxHealth() => maxHealth;
+
     private void HandleMovement()
     {
 

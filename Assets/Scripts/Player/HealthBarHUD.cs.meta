@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a2189787221ef8547bdb83444254c362
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - heart1: {fileID: 5609109386520689065, guid: 80ee8c708ae687b489d3159e31df26c2, type: 3}
+  - heart2: {fileID: 5609109386520689065, guid: a86c2fd65076362408098e76d6c51538, type: 3}
+  - heart3: {fileID: 5609109386520689065, guid: da666976621702a4b8c5548498c79f9f, type: 3}
+  - fullHeart: {fileID: 293647667, guid: 982986ec83dddd54ba738476163b547b, type: 3}
+  - emptyHeart: {fileID: -264952282, guid: 5c8bb72227656264a8af2c24284f5fdf, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
