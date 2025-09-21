@@ -145,6 +145,9 @@ public class Hero : MonoBehaviour
 
             OnPlayerDeath?.Invoke(this, EventArgs.Empty);
 
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
         }
     }
 
