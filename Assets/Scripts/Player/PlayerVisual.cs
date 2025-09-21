@@ -45,13 +45,20 @@ public class PlayerVisual : MonoBehaviour
 
     private void AdjustPlayerFacingDirection()
     {
-        Vector3 mousePos = GameInput.Instance.GetMousePosition();
+        //If you need a flip from the cursor
+        /*Vector3 mousePos = GameInput.Instance.GetMousePosition();
         Vector3 playerPosition = Hero.Instance.GetScreenPlayerPosition();
 
         if (mousePos.x < playerPosition.x)
             spriteRenderer.flipX = true;
         else
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = false;*/
+        Vector2 movement = GameInput.Instance.GetMovementVector();
 
+        // Поворачиваем только при значительном движении по X
+        if (Mathf.Abs(movement.x) > 0.1f)
+        {
+            spriteRenderer.flipX = movement.x < 0;
+        }
     }
 }
